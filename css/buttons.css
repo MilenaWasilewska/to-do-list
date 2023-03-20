@@ -1,0 +1,35 @@
+.buttons {
+    display: flex;
+}
+
+.buttons__button {
+    height: 50px;
+    background: transparent;
+    border: none;
+    color: rgb(51, 132, 124);
+    transition: 0.5s;
+}
+
+.buttons__button:hover {
+    color: rgba(70, 151, 143, 0.804);
+}
+
+.buttons__button:active {
+    color: rgba(70, 151, 143, 0.804);
+    border-style: solid;
+    border-color: gray;
+}
+
+.buttons__button:disabled {
+    color: gray;
+}
+
+.buttons__button--hidden {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .buttons {
+        flex-direction: column;
+    }
+}
