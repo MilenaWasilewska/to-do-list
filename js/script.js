@@ -3,7 +3,6 @@
     let hideDoneTasks = false;
 
     const addNewTask = (newTaskContent) => {
-
         tasks = [
             ...tasks,
             { content: newTaskContent, done: false }
@@ -74,20 +73,20 @@
 
     const renderTasks = () => {
         const taskToHTML = task => `
-            <li class="
+                <li class="
             tasks__item ${task.done && hideDoneTasks ? " tasks__item--hidden" : ""} js-tasks">
-            <button 
+                <button 
             class="tasks__button tasks__button--toggleDone js-toggleDone">
             ${task.done ? "✔" : ""}
-            </button>
-            <span 
+                </button>
+                <span 
             class="tasks__content ${task.done ? "tasks__content--done" : ""}">${task.content}
-            </span>
-            <button
+                </span>
+                <button
              class="tasks__button tasks__button--remove js-remove">
-            🗑
-            </button>
-            </li>
+                🗑
+                </button>
+                </li>
             `;
 
         const tasksElement = document.querySelector(".js-tasks");
@@ -102,18 +101,19 @@
             return;
         };
 
-        const anyDone = (tasks) => tasks.some(({ done }) => done == true);
+        const areSomeTasksDone = (tasks) => tasks.some(({ done }) => done == true);
         
         buttonsElement.innerHTML = `
-        <button class="buttons__button js-toggleHideDoneTasks">
-        ${hideDoneTasks && anyDone(tasks) ? "Pokaż" : "Ukryj"} ukończone
-        </button>
-
-        <button class="buttons__button js-markAllDone"
+            <button
+            class="buttons__button js-toggleHideDoneTasks">
+        ${hideDoneTasks && areSomeTasksDone(tasks) ? "Pokaż" : "Ukryj"} ukończone
+            </button>
+            <button
+            class="buttons__button js-markAllDone"
         ${tasks.every(({ done }) => done) ? " disabled" : ""}
-        >
-        Ukończ wszystkie
-        </button>
+            >
+            Ukończ wszystkie
+            </button>
         `;
     };
 
@@ -142,8 +142,11 @@
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-        const newTaskElement = document.querySelector(".js-newTask");
-        const newTaskContent = document.querySelector(".js-newTask").value.trim();
+
+            const newTaskElement = 
+        document.querySelector(".js-newTask");
+            const newTaskContent = 
+        newTaskElement.value.trim();
 
         if (newTaskContent !== "") {
             addNewTask(newTaskContent);

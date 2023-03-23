@@ -20,7 +20,7 @@
 }
 
 @media (max-width: 767px) {
-    .section__header--positionChanger {
+    .section__header {
         grid-template-columns: 1fr;
         grid-gap: 0;
     }
@@ -31,10 +31,6 @@
     align-self: flex-start;
     font-weight: bold;
     font-size: 23px;
-}
-
-.section__title--noneBorder {
-    border: none;
 }
 
 .section__body {

@@ -6,7 +6,7 @@
     height: 50px;
     background: transparent;
     border: none;
-    color: rgb(51, 132, 124);
+    color: teal;
     transition: 0.5s;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .buttons__button:disabled {
-    color: gray;
+    color: rgba(209, 209, 209, 0.7);
 }
 
 .buttons__button--hidden {
